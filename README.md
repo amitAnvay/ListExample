@@ -3,5 +3,5 @@
 List Exmaples
 
 - ArrayAdapter
-- Adapter extending BaseAdapter
+- List using Custom Adapter extending BaseAdapter with alternate rows using differnt layout
 - RecyclerView
