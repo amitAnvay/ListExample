@@ -25,7 +25,7 @@ public class BaseAdapterListActivity extends Activity {
         setContentView(R.layout.activity_baseadapter_activity_example);
 
         MyBaseAdapter adapter = new MyBaseAdapter();
-        ListView listView = (ListView)findViewById(R.id.listView);
+        ListView listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(adapter);
     }
 
@@ -51,9 +51,14 @@ public class BaseAdapterListActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    class MyModelText{
+    private static class MyModelText {
         String text1;
         String text2;
+    }
+
+    static class ViewHolder {
+        TextView text1;
+        TextView text2;
     }
 
     class MyBaseAdapter extends BaseAdapter {
@@ -61,10 +66,9 @@ public class BaseAdapterListActivity extends Activity {
         List<MyModelText> listData = getMyListData();
 
 
-
         @Override
         public int getCount() {
-           return listData.size();
+            return listData.size();
         }
 
         @Override
@@ -80,39 +84,59 @@ public class BaseAdapterListActivity extends Activity {
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
 
-            if(i %2 == 0){
-                if(view == null) {
+
+            if (i % 2 == 0) {
+                if (view == null) {
                     LayoutInflater inflater = (LayoutInflater) BaseAdapterListActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                     view = inflater.inflate(R.layout.list_item_single_row, viewGroup, false);
+                    ViewHolder viewHolder = new ViewHolder();
+                    viewHolder.text1 = (TextView) view.findViewById(R.id.textView3);
+                    viewHolder.text2 = (TextView) view.findViewById(R.id.textView3);
+                    //   viewHolder.text1.setText("Row with one text");
+                    view.setTag(viewHolder);
                 }
-                TextView textView = (TextView)view.findViewById(R.id.textView3);
-                textView.setText("Hello");
+                ViewHolder viewHolder = (ViewHolder) view.getTag();
+                viewHolder.text1.setText("Row with one text");
+//                TextView textView = (TextView)view.findViewById(R.id.textView3);
+//                textView.setText("Row with one text");
 
-            }else {
+            } else {
 
 
                 if (view == null) {
                     LayoutInflater inflater = (LayoutInflater) BaseAdapterListActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                     view = inflater.inflate(R.layout.list_row_with_thumnail_arrow, viewGroup, false);
+                    ViewHolder viewHolder = new ViewHolder();
+                    viewHolder.text1 = (TextView) view.findViewById(R.id.textView1);
+                    viewHolder.text2 = (TextView) view.findViewById(R.id.textView2);
+                    view.setTag(viewHolder);
+//                    MyModelText modelText = listData.get(i);
+//                    viewHolder.text1.setText(modelText.text1);
+//                    viewHolder.text1.setText(modelText.text2);
+
                 }
-                TextView textView1 = (TextView) view.findViewById(R.id.textView1);
-                TextView textView2 = (TextView) view.findViewById(R.id.textView2);
+                ViewHolder viewHolder = (ViewHolder) view.getTag();
                 MyModelText modelText = listData.get(i);
-                textView1.setText(modelText.text1);
-                textView2.setText(modelText.text2);
+                viewHolder.text1.setText(modelText.text1);
+                viewHolder.text2.setText(modelText.text2);
+//                TextView textView1 = (TextView) view.findViewById(R.id.textView1);
+//                TextView textView2 = (TextView) view.findViewById(R.id.textView2);
+//                MyModelText modelText = listData.get(i);
+//                textView1.setText(modelText.text1);
+//                textView2.setText(modelText.text2);
             }
 
             return view;
         }
     }
 
-    public List<MyModelText> getMyListData(){
+    public static List<MyModelText> getMyListData() {
         List<MyModelText> list = new ArrayList<MyModelText>();
 
-        for(int i=0; i < 35; i++){
+        for (int i = 0; i < 35; i++) {
             MyModelText modelText = new MyModelText();
-            modelText.text1 = "This is First Line Text: "+i;
-            modelText.text2 = "This is Second Line Text:"+i;
+            modelText.text1 = "First Line Text: " + i;
+            modelText.text2 = "Second Line Text:" + i;
             list.add(modelText);
         }
         return list;

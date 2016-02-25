@@ -50,7 +50,7 @@ public class ListActivityExample extends ListActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    class MyListModel{
+   static class MyListModel{
         String text1;
         String text2;
     }

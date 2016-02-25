@@ -8,4 +8,5 @@
     <string name="hello_world">Base Adpater List with Two line text and images on left and right.Alternate rows have single line rows</string>
     <string name="title_activity_base_adapter_list">BaseAdapterListActivity</string>
     <string name="title_activity_list_activity_example">ListActivityExample</string>
+    <string name="recycler_view_example">Recycler View Example</string>
 </resources>
