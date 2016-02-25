@@ -8,7 +8,8 @@ List Exmaples
 
 > # Screenshots
 
-![Alt text](/raw/app/1.png?raw=true "Home Screen")
-![Alt text](/raw/app/2.png?raw=true "Base Adapter")
-![Alt text](/raw/app/3.png?raw=true "List Activity")
-![Alt text](/raw/app/4.png?raw=true "Recycler View Example")
+![Alt text](/app/raw/1.png?raw=true "Home Screen")
+![Alt text](/app/raw/2.png?raw=true "Array Adapter")
+![Alt text](/app/raw/3.png?raw=true "Base Adapter")
+![Alt text](/app/raw/4.png?raw=true "List Activity")
+![Alt text](/app/raw/5.png?raw=true "Recycler View Example")
