@@ -4,7 +4,7 @@ List Exmaples
 
 - ArrayAdapter
 - List using Custom Adapter extending BaseAdapter with alternate rows using differnt layout
-- RecyclerView
+- RecyclerView (Uses Picasso to fetch images)
 
 > # Screenshots
 
